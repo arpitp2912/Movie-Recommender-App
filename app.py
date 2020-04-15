@@ -4,7 +4,7 @@ import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-movie_data = pd.read_csv('Data/movie_metadata.csv',engine = 'python')
+movie_data = pd.read_csv('movie_metadata.csv',engine = 'python')
 
 movie_data.movie_title = movie_data.movie_title.str.lower().str.strip()
 movie_data['index'] = movie_data.index
