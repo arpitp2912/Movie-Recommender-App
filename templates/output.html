@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Add icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+  .btn {
+    background-color: #753232;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  /* Darker background on mouse-over */
+  .btn:hover {
+    background-color: #4a1919;
+  }
+  </style>
+
+  <form action="https://netflix-recommendation.herokuapp.com/home">
+  <button class="btn"><i class="fa fa-home"></i> Home</button>
+  </form>
+
+
+  <div class="body">
+    <h1>Top 5 Recommendations similar to "{{input_movie}}": </h1>
+  <!-- <h1>Netflix Movie/TV Show Recommender<br /> <link rel="stylesheet" href="/static/style.css" /></h1> -->
+  <div class="wrapper">
+    <link rel="stylesheet" href="/static/style.css" />
+    <!-- <form action="predict" method="post"> -->
+    <!-- <input name="movie" class="search" type="text" id="movie" placeholder="Movie name here" /> -->
+    <!-- <link rel="stylesheet" href="/static/style.css" /> -->
+    
+    <!-- <button class="submit" type="submit" class="btn btn-primary btn-block btn-large">Submit</button> -->
+  <!-- </form> -->
+    <link rel="stylesheet" href="/static/style.css" />
+  </div>
+
+<style>
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+@import 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700';
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /*background: #105469;*/
+  font-family: Montserrat, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+table {
+  background: #382d2d;
+  /*background: #78051a;*/
+  border-radius: 0.25em;
+  border-collapse: collapse;
+  /*margin: 1em;*/
+}
+
+table.customers {
+    width:80%; 
+    margin-left:10%; 
+    margin-right:10%;
+  }
+
+th {
+  border-bottom: 1px solid #364043;
+  color: #E2B842;
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  text-align: left;
+}
+td {
+  color: #fff;
+  font-weight: 400;
+  padding: 0.65em 1em;
+}
+.disabled td {
+  color: #4F5F64;
+}
+tbody tr {
+  transition: background 0.25s ease;
+}
+tbody tr:hover {
+  background: #301f1f;
+  
+}
+
+</style>
+</head>
+<body>
+
+<table id="customers" class="customers">
+
+  <thead>
+    
+    <tr>
+      <th>Title
+      <th>Plot
+      
+  </thead>
+    <tbody>
+    <tr>
+      <td>{{ movies[0][0].title() }}
+      <td>{{ movies[0][1] }}
+      
+    <tr>
+      <td>{{ movies[1][0].title() }}
+      <td>{{ movies[1][1] }}
+      
+    <tr >
+      <td>{{ movies[2][0].title() }}
+      <td>{{ movies[2][1] }}
+      
+    <tr>
+      <td>{{ movies[3][0].title() }}
+      <td>{{ movies[3][1] }}
+      
+    <tr>
+      <td>{{ movies[4][0].title() }}
+      <td>{{ movies[4][1] }}
+      
+  </tbody>
+  </table>
+
+<br>
+<br>
+
+<style>
+a:link {
+  color: #ab584f;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #753b35;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+</style>
+
+<p><font color="white">*The <a href="https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset">dataset </a> is taken from Kaggle and consists of 5000 movies from IMDB.<br>
+  <!-- <a href="https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset">*Link to the dataset</a> -->
+</font>
+</p>
+
+<br>
+<br>
+</head>
+</html>
