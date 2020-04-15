@@ -37,23 +37,25 @@ def get_plot_from_index(df, index):
     return df[df.index == index]["plot"].values[0]
 
 def recommend(movie_user_likes):
-    
-    movie_user_likes = movie_user_likes.lower()
-    movie_index = get_index_from_title(movie_data, movie_user_likes)
-    similar_movies =  list(enumerate(cosine_sim[movie_index]))
-    sorted_similar_movies = sorted(similar_movies,key=lambda x:x[1],reverse=True)[1:]
-    i=0
-    print("Top 5 similar shows like "+movie_user_likes+" are:\n")
-    recommended_movies = []
+    try:
+        movie_user_likes = movie_user_likes.lower()
+        movie_index = get_index_from_title(movie_data, movie_user_likes)
+        similar_movies =  list(enumerate(cosine_sim[movie_index]))
+        sorted_similar_movies = sorted(similar_movies,key=lambda x:x[1],reverse=True)[1:]
+        i=0
+        print("Top 5 similar shows like "+movie_user_likes+" are:\n")
+        recommended_movies = []
 
-    for element in sorted_similar_movies:
+        for element in sorted_similar_movies:
 
-        recommended_movies.append([get_title_from_index(movie_data, element[0]), get_plot_from_index(movie_data, element[0])])
-        i=i+1
-        if i>=5:
-            break
-    return recommended_movies
-
+            recommended_movies.append([get_title_from_index(movie_data, element[0]), get_plot_from_index(movie_data, element[0])])
+            i=i+1
+            if i>=5:
+                break
+        return recommended_movies
+    except:
+        # return('Movie not found on Netflix. Please retry!')
+        return None
 
 app = Flask(__name__)
 
