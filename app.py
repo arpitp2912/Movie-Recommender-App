@@ -6,7 +6,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 movie_data = pd.read_csv('movies.csv')
 
-movie_data = movie_data.drop_duplicates(subset = 'movie_title')
+movie_data = movie_data.drop_duplicates()
 
 movie_data.movie_title = movie_data.movie_title.str.lower().str.strip()
 movie_data['index'] = movie_data.index
